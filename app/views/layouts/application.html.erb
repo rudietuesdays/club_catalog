@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Groups</title>
+      <%= csrf_meta_tags %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <% if flash[:notice] %>
+      <% flash[:notice].each do |e| %>
+      <p><%= e %></p>
+      <% end %>
+      <% end %>
+      <% if current_user %>
+      <a href="/groups">Dashboard</a>
+      |
+      <a href="/logout/<%=current_user.id%>" data-method="delete">Log Out</a>
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>

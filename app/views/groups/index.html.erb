@@ -1,0 +1,23 @@
+<h1>Hi, <%= @user.first_name %> <%= @user.last_name %>!</h1>
+<h3>Here are the organizations you may join:</h3>
+<% @groups.each do |g| %>
+  <p>
+    <a href="/groups/<%= g.id %>"><%= g.name %></a>
+    <% if g.user == current_user %>
+    | ***<a href="/groups/<%= g.id %>" data-method="delete">Delete your group</a>***
+    <% end %>
+    <br>
+    Members: <%= g.memberships.count %>
+    <br>
+    <%= g.description %>
+  </p>
+<% end %>
+<hr>
+<h3>Create a new organization: </h3>
+<form action="/groups/create" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Org name: <input type="text" name="group[name]"></p>
+  <p>Description:</p>
+  <textarea name="group[description]" rows="8" cols="80"></textarea>
+  <p><input type="submit" value="Create Group"></p>
+</form>

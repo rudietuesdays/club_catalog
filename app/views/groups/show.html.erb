@@ -1,0 +1,16 @@
+<h1><%= @group.name %></h1>
+<p>
+  <% if @memberships.exists?(user_id: current_user.id) %>
+  <a href="/memberships/<%= @group.id %>" data-method="delete">Leave group</a>
+  <% else %>
+  <a href="/memberships/<%= @group.id %>" data-method="post">Join group</a>
+  <% end %>
+  <br>
+  <%= @group.description %>
+</p>
+
+<h3>Created by: <%= @group.user.first_name %> <%= @group.user.last_name %></h3>
+<h3>Members:</h3>
+<% @memberships.each do |m| %>
+<p><%= m.user.first_name %> <%= m.user.last_name %></p>
+<% end %>
