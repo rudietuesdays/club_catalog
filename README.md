@@ -1,24 +1,15 @@
-# README
+# Club Catalog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the club catalog.
 
-Things you may want to cover:
+Users can peruse the club catalog, create a club of their own, or join and leave existing clubs at will. Only the club creator and admin may delete their club.
 
-* Ruby version
+This app allows users to securely register for an account and login before selecting which groups to join.
 
-* System dependencies
+No CSS styling has been added to the app, allowing the user to style as desired. A future version will include a template styling.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Built in:
+  * Ruby on Rails
+  * Vagrant
+  * Virtual Box
+  * ubuntu/trusty64
